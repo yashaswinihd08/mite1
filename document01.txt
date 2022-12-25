@@ -1,0 +1,193 @@
+//Program to calculate interest
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    int principle;
+    char interest_type;
+    float time, rate_of_interest, interest;
+    scanf("%d", &principle);
+    scanf("%f", &rate_of_interest);
+    scanf("%f", &time);
+    // interest_type = getchar();
+    // interest_type = getc(stdin);
+    scanf("%c", &interest_type); 
+    scanf("%c", &interest_type); 
+    
+    if (interest_type == 'C' || interest_type == 'c'){
+        interest = principle *pow (1 + rate_of_interest / 100, time) - principle;
+    }
+    else if ( interest_type =='s' || interest_type == 'S'){
+        interest = principle * time* rate_of_interest / 100;
+    }
+    printf("Interest : %.2f", interest);
+
+    return 0;
+}
+
+
+
+//Program to print four values in increasing order
+#include <stdio.h>
+
+int max(int x, int y){
+    return x > y ? x: y;
+}
+int min(int x, int y){
+    return x < y ? x : y;
+}
+
+int main()
+{
+   int a,b,c,d, maximum, minimum, mid1, mid2;
+   scanf("%d %d %d %d", &a, &b, &c, &d);
+   maximum = a>b && a>c && a>d ? a : (b>c && b>d?b:(c>d?c:d));
+   minimum = a<b && a<c && a<d ? a : (b<c && b<d?b:(c<d?c:d));
+   mid1 = min(max(a,b), max(c,d));
+   mid2 = a+b+c+d - (maximum+minimum+mid1);
+   if (mid1 < mid2)
+        printf("%d < %d < %d < %d", minimum, mid1, mid2, maximum);
+    else
+        printf("%d < %d < %d < %d", minimum, mid2, mid1, maximum);
+
+    return 0;
+}
+
+
+//Program to check whether the given character is vowel or not
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    char ch;
+    ch = getc(stdin);
+    ch = tolower(ch);
+    switch(ch){
+        case 'a': case 'e': case 'i': case 'o': case 'u':
+            printf("Vowel");
+            break;
+        default:
+            printf("Not Vowel");
+    }
+
+    return 0;
+}
+
+//Program to check whether the given character is consonant or not
+#include <stdio.h>
+
+#include <ctype.h>
+int main()
+{
+    char ch;
+    ch = getc(stdin);
+    
+    // if (( ch >='a' && ch<='z') || (ch>='A' && ch<='Z')) {
+    if (isalpha(ch)){
+        switch(ch){
+            case 'a': case 'e': case 'i': case 'o': case 'u':
+                printf("Vowel");
+                break;
+            default:
+                printf("Consonant");
+        }
+    }
+    else
+        printf("Not an alphabet");
+    return 0;
+}
+
+
+
+//Program to convert a character into toggle case
+#include <stdio.h>
+
+int main()
+{
+    char ch;
+    ch = getc(stdin);
+    if ( ch >='a' && ch <='z')
+        printf("Upper case '%c' is '%c'", ch, ch-32);
+    else if ( ch >='A' && ch <='Z')
+        printf("Lower case '%c' is '%c'", ch, ch+32);
+    else
+        printf("Not an alphabet");
+    return 0;
+}
+
+
+
+//Program to convert a character into toggle case
+#include <stdio.h>
+#include <ctype.h>
+int main()
+{
+    char ch;
+    ch = getc(stdin);
+    if (islower(ch))
+        printf("Upper case of '%c' is '%c'", ch, toupper(ch));
+    else if (isupper(ch))
+        printf("Lower case of '%c' is '%c'", ch, tolower(ch));
+    // if ( ch >='a' && ch <='z')
+    //     printf("Upper case '%c' is '%c'", ch, ch-32);
+    // else if ( ch >='A' && ch <='Z')
+    //     printf("Lower case '%c' is '%c'", ch, ch+32);
+    else
+        printf("Not an alphabet");
+    return 0;
+}
+
+
+
+
+//Program to reverse a number
+#include <stdio.h>
+
+int main()
+{
+    int n, sum = 0;
+    scanf("%d", &n);
+    while(n!=0){
+           sum = sum * 10 + n % 10;
+           n/=10; //n = n / 10
+    }
+    printf("%d", sum);
+    return 0;
+}
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int n, sum = 0;
+    scanf("%d", &n);
+    while(sum = sum * 10 + n % 10,n/=10);
+    printf("%d", sum);
+    return 0;
+}
+
+//to check whether given number is positive or negative 
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    char choice;
+    
+    do{
+        scanf("%d", &n);
+        if (n > 0)
+            printf("%d is Positive", n);
+        else if (n < 0)
+            printf("%d Negative", n);
+        else
+            printf("Zero");
+        printf("\nWant to continue[Y]es/[N]o ? ");
+        choice = getc(stdin);
+        choice = getc(stdin); // stdin - predefined variable - refers standard input
+    } while (choice =='Y' || choice == 'y');
+    return 0;
+}uy
